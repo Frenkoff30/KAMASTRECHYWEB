@@ -1,92 +1,34 @@
-# KAMA STŘECHY — Web Jiřího Švece
+# KAMA STŘECHY
 
-Osobní web pokrývačské a klempířské firmy **KAMA STŘECHY** (Jiří Švec, Hlinsko).  
-Čistý HTML/CSS/JS projekt bez frameworků — snadno upravitelný i bez programátorských zkušeností.
+Web pro tátu. Pokrývačství a klempířství z Hlinska, co dělá střechy od roku 2001.
 
----
+Žádný framework, žádný build proces — jen HTML, CSS, JavaScript a trocha PHP na formulář.
 
-## 🗂 Struktura projektu
+## Co kde je
 
 ```
-kama-strechy/
-├── index.html          ← celý web (jedna stránka)
-├── css/
-│   └── style.css       ← veškeré styly
-├── js/
-│   └── main.js         ← interakce (menu, galerie, formulář)
-├── images/
-│   ├── logo.png        ← logo firmy
-│   ├── galerie/        ← fotky realizací (jpg, png, webp)
-│   └── partneri/       ← loga partnerů
-└── php/
-    └── contact.php     ← odesílání formuláře na e-mail
+index.html        — celý web
+css/style.css     — styly
+js/main.js        — menu, galerie, formulář
+php/contact.php   — odesílání mailu
+images/galerie/   — sem patří fotky realizací
+images/partneri/  — sem patří loga partnerů
 ```
 
----
+## Fotky do galerie
 
-## 📸 Jak přidat fotky do galerie
+Hoď fotky do `images/galerie/` a v `index.html` v sekci galerie přidej dovnitř `.gallery-placeholder`:
 
-1. Zkopíruj fotky do složky `images/galerie/`
-2. V `index.html` najdi sekci `<!-- GALLERY -->` a uvnitř každého `.gallery-placeholder` přidej:
 ```html
-<img src="images/galerie/nazev-fotky.jpg" alt="Popis realizace">
-```
-3. Ulož, commitni a pushni:
-```bash
-git add .
-git commit -m "přidány fotky do galerie"
-git push
+<img src="images/galerie/strecha1.jpg" alt="Popis">
 ```
 
----
+## Formulář
 
-## 🏢 Loga partnerů
+Funguje jen na hostingu s PHP — lokálně ne. Mail chodí na `strechykama@seznam.cz`, změnit to jde v `php/contact.php` na řádku s `$to`.
 
-Vlož loga (PNG s průhledným pozadím) do `images/partneri/` a v `index.html` najdi sekci `<!-- PARTNERS -->`:
-```html
-<img src="images/partneri/logo-partnera.png" alt="Název partnera" class="partner-logo">
-```
+## Časté změny
 
----
-
-## 📬 Kontaktní formulář
-
-Formulář odesílá data přes `php/contact.php` na adresu **strechykama@seznam.cz**.
-
-> ⚠️ PHP funguje pouze na hostingu — lokálně (otevření přes `index.html` v prohlížeči) formulář nefunguje. Doporučujeme hosting **Wedos** nebo **Forpsi** (od ~50 Kč/měsíc).
-
----
-
-## 🚀 Nasazení na hosting
-
-1. Nahraj celou složku `kama-strechy/` na FTP hosting
-2. Ujisti se, že hosting podporuje PHP 8+
-3. Hotovo — web běží
-
-### GitHub Pages (zdarma, bez formuláře)
-Settings → Pages → Branch: `main` → `/root` → Save  
-Web bude na: `frenkoff30.github.io/KAMASTRECHYWEB`
-
----
-
-## ✏️ Časté úpravy
-
-| Co chceš změnit | Kde to najdeš |
-|---|---|
-| Telefon / e-mail | `index.html` → sekce `#kontakt` |
-| Texty služeb | `index.html` → sekce `#sluzby` |
-| Barvy | `css/style.css` → `:root { --orange: ... }` |
-| Odesílací e-mail | `php/contact.php` → `$to = '...'` |
-| Statistiky v hero | `index.html` → `.hero-stats` |
-
----
-
-## 🛠 Technologie
-
-- **HTML5 / CSS3 / Vanilla JS** — žádné frameworky
-- **Bebas Neue + DM Sans** — Google Fonts
-- **PHP 8** — pouze pro kontaktní formulář
-
----
-
-*Vytvořeno s ❤️ pro tátu — Hlinsko 2025*
+- telefon / mail → `index.html`, sekce kontakt
+- barvy → `css/style.css`, proměnná `--orange`
+- texty služeb → `index.html`, sekce služby

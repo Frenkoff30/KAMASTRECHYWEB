@@ -8,10 +8,10 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     exit;
 }
 
-// ===== KONFIGURACE =====
+//KONFIGURACE
 $to      = 'strechykama@seznam.cz';
 $subject = 'Nová poptávka z webu KAMA STŘECHY';
-// ========================
+
 
 // Sanitizace vstupu
 function clean(string $val): string {

@@ -140,6 +140,18 @@
     background-size: 56px 56px;
   }
 
+  .hero-roof-deco {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 1000px;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+  }
+
   .hero-left {
     position: relative;
     z-index: 2;
@@ -990,9 +1002,46 @@
 <section class="hero" id="uvod">
   <div class="hero-bg"></div>
 
+  <!-- Dekorativní motiv střechy v pozadí -->
+  <svg class="hero-roof-deco" viewBox="0 0 900 600" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <!-- Hlavní střecha velká -->
+    <polygon points="450,40 820,280 820,580 80,580 80,280" fill="rgba(242,107,29,0.04)" stroke="rgba(242,107,29,0.18)" stroke-width="1.5"/>
+    <!-- Vnitřní kontura -->
+    <polygon points="450,80 780,290 780,560 120,560 120,290" fill="none" stroke="rgba(242,107,29,0.08)" stroke-width="1"/>
+    <!-- Hřeben -->
+    <line x1="450" y1="40" x2="450" y2="280" stroke="rgba(242,107,29,0.25)" stroke-width="1.5"/>
+    <!-- Bod hřebene -->
+    <circle cx="450" cy="40" r="5" fill="rgba(242,107,29,0.5)"/>
+    <!-- Komín -->
+    <rect x="580" y="120" width="40" height="90" fill="rgba(26,26,26,0.04)" stroke="rgba(26,26,26,0.1)" stroke-width="1"/>
+    <rect x="574" y="116" width="52" height="10" fill="none" stroke="rgba(26,26,26,0.1)" stroke-width="1"/>
+    <!-- Střešní okno -->
+    <rect x="310" y="200" width="60" height="50" rx="2" fill="none" stroke="rgba(242,107,29,0.12)" stroke-width="1"/>
+    <line x1="310" y1="225" x2="370" y2="225" stroke="rgba(242,107,29,0.08)" stroke-width="0.8"/>
+    <!-- Vodorovné linie (tašky) -->
+    <g stroke="rgba(26,26,26,0.05)" stroke-width="0.8">
+      <line x1="80" y1="340" x2="820" y2="340"/>
+      <line x1="80" y1="400" x2="820" y2="400"/>
+      <line x1="80" y1="460" x2="820" y2="460"/>
+      <line x1="80" y1="520" x2="820" y2="520"/>
+    </g>
+    <!-- Svislé linie (tašky) -->
+    <g stroke="rgba(26,26,26,0.04)" stroke-width="0.8">
+      <line x1="200" y1="280" x2="200" y2="580"/>
+      <line x1="320" y1="280" x2="320" y2="580"/>
+      <line x1="450" y1="280" x2="450" y2="580"/>
+      <line x1="580" y1="280" x2="580" y2="580"/>
+      <line x1="700" y1="280" x2="700" y2="580"/>
+    </g>
+    <!-- Malá střecha vlevo dole — dekorativní -->
+    <polygon points="110,580 110,480 170,430 230,480 230,580" fill="none" stroke="rgba(242,107,29,0.1)" stroke-width="1"/>
+    <!-- Malá střecha vpravo dole -->
+    <polygon points="670,580 670,480 730,430 790,480 790,580" fill="none" stroke="rgba(242,107,29,0.1)" stroke-width="1"/>
+  </svg>
+
   <!-- LEVÁ část -->
   <div class="hero-left">
-    <div class="hero-badge">Stavíme spolehlivé střechy od roku 2001</div>
+    <div class="hero-badge">Spolehlivé střechy od roku 2001</div>
     <h1 class="hero-title">
       <span class="small-word">Vaše střecha</span>
       <span class="accent">BEZPEČNĚ</span>

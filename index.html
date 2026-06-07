@@ -449,36 +449,108 @@
   .services-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 1.5px;
-    background: var(--black-3);
-    border: 1.5px solid var(--black-3);
+    gap: 1.5rem;
   }
+
+  /* Flip karta */
   .service-card {
-    background: var(--black-2);
-    padding: 2.5rem;
-    position: relative;
-    overflow: hidden;
-    transition: background 0.3s;
+    perspective: 1000px;
+    height: 280px;
+    cursor: pointer;
   }
-  .service-card::before {
+
+  .service-card-inner {
+    position: relative;
+    width: 100%; height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .service-card:hover .service-card-inner,
+  .service-card.flipped .service-card-inner {
+    transform: rotateY(180deg);
+  }
+
+  /* Přední strana — střešní taška */
+  .service-front {
+    position: absolute;
+    inset: 0;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    background: #1E1E1E;
+    clip-path: polygon(0 12%, 50% 0%, 100% 12%, 100% 100%, 0 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    padding: 2rem;
+    padding-top: 3rem;
+  }
+
+  .service-front::before {
     content: '';
     position: absolute;
-    bottom: 0; left: 0;
-    height: 3px; width: 0;
+    top: 0; left: 0; right: 0;
+    height: 4px;
     background: var(--orange);
-    transition: width 0.4s ease;
+    clip-path: polygon(0 0, 50% 0, 100% 0, 100% 100%, 50% 100%, 0 100%);
   }
-  .service-card:hover { background: var(--black-3); }
-  .service-card:hover::before { width: 100%; }
-  .service-icon { width: 3rem; height: 3rem; margin-bottom: 1.5rem; color: var(--orange); }
+
+  .service-icon {
+    width: 3rem; height: 3rem;
+    color: var(--orange);
+    flex-shrink: 0;
+  }
+
+  .service-name-front {
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    letter-spacing: 0.06em;
+    color: #F5F3EF;
+    text-align: center;
+    line-height: 1.1;
+  }
+
+  /* Zadní strana — info */
+  .service-back {
+    position: absolute;
+    inset: 0;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    transform: rotateY(180deg);
+    background: #1E1E1E;
+    border-top: 4px solid var(--orange);
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.75rem;
+  }
+
   .service-name {
     font-family: var(--font-display);
-    font-size: 1.6rem;
+    font-size: 1.5rem;
     letter-spacing: 0.05em;
-    margin-bottom: 0.8rem;
-    color: var(--white);
+    color: #F5F3EF;
+    line-height: 1.1;
   }
-  .service-desc { font-size: 0.88rem; line-height: 1.65; color: var(--gray); }
+
+  .service-desc {
+    font-size: 0.86rem;
+    line-height: 1.65;
+    color: #AAAAAA;
+  }
+
+  .service-hint {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-top: auto;
+  }
+
   .service-num { display: none; }
 
   /* ── WHY US ── */
@@ -940,7 +1012,8 @@
   }
 
   @media (max-width: 900px) {
-    .services-grid { grid-template-columns: 1fr; }
+    .services-grid { grid-template-columns: 1fr 1fr; }
+    .service-card { height: 260px; }
     .gallery-grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
     .gallery-item:first-child { grid-row: span 1; }
     .gallery-grid .gallery-item { height: 200px; }
@@ -969,6 +1042,8 @@
     .services { padding: 5rem 5vw; }
     .why { padding: 5rem 5vw; }
     .why-cards { grid-template-columns: 1fr; }
+    .services-grid { grid-template-columns: 1fr; }
+    .service-card { height: 240px; }
     .gallery { padding: 5rem 5vw; }
     .gallery-grid { grid-template-columns: 1fr; }
     .gallery-item { height: 200px; }
@@ -1167,72 +1242,114 @@
   <div class="services-grid">
 
     <div class="service-card fade-up">
-      <div class="service-num">01</div>
-      <svg class="service-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
-        <path d="M8 16L24 6L40 16"/><path d="M8 16V38H40V16"/>
-        <path d="M16 38V26H32V38" fill="currentColor" opacity="0.15" stroke="currentColor"/>
-        <rect x="20" y="10" width="8" height="6" rx="1" fill="currentColor" opacity="0.3"/>
-      </svg>
-      <div class="service-name">KLEMPÍŘSKÉ PRÁCE</div>
-      <p class="service-desc">Výroba a montáž klempířských prvků na míru. Parapety, okapnice, závětrné lišty, oplechování komínů, úžlabí a vše co Vaše střecha potřebujete.</p>
+      <div class="service-card-inner">
+        <div class="service-front">
+          <svg class="service-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M8 16L24 6L40 16"/><path d="M8 16V38H40V16"/>
+            <path d="M16 38V26H32V38" fill="currentColor" opacity="0.15" stroke="currentColor"/>
+            <rect x="20" y="10" width="8" height="6" rx="1" fill="currentColor" opacity="0.3"/>
+          </svg>
+          <div class="service-name-front">KLEMPÍŘSKÉ PRÁCE</div>
+        </div>
+        <div class="service-back">
+          <div class="service-name">KLEMPÍŘSKÉ PRÁCE</div>
+          <p class="service-desc">Výroba a montáž klempířských prvků na míru. Parapety, okapnice, závětrné lišty, oplechování komínů a vše co Vaše střecha potřebuje.</p>
+          <span class="service-hint">← Přejeďte zpět</span>
+        </div>
+      </div>
     </div>
 
     <div class="service-card fade-up">
-      <div class="service-num">02</div>
-      <svg class="service-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
-        <path d="M4 20L24 4L44 20V44H30V32H18V44H4V20Z"/>
-        <path d="M18 32H30V44H18Z" fill="currentColor" opacity="0.2"/>
-      </svg>
-      <div class="service-name">POKRÝVAČSKÉ PRÁCE</div>
-      <p class="service-desc">Montáže veškerých střešních krytin dle vašeho přání. Od betonové tašky po plech. Novostavby i kompletní rekonstrukce, pergoly, zahradní domky.</p>
+      <div class="service-card-inner">
+        <div class="service-front">
+          <svg class="service-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M4 20L24 4L44 20V44H30V32H18V44H4V20Z"/>
+            <path d="M18 32H30V44H18Z" fill="currentColor" opacity="0.2"/>
+          </svg>
+          <div class="service-name-front">POKRÝVAČSKÉ PRÁCE</div>
+        </div>
+        <div class="service-back">
+          <div class="service-name">POKRÝVAČSKÉ PRÁCE</div>
+          <p class="service-desc">Montáže veškerých střešních krytin dle přání. Od betonové tašky po plech. Novostavby i kompletní rekonstrukce, pergoly, zahradní domky.</p>
+          <span class="service-hint">← Přejeďte zpět</span>
+        </div>
+      </div>
     </div>
 
     <div class="service-card fade-up">
-      <div class="service-num">03</div>
-      <svg class="service-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
-        <rect x="14" y="10" width="20" height="26" rx="2"/>
-        <path d="M10 18h4M34 18h4M10 28h4M34 28h4"/>
-        <circle cx="24" cy="38" r="2" fill="currentColor" opacity="0.4"/>
-        <path d="M18 10V8a6 6 0 0112 0v2"/>
-      </svg>
-      <div class="service-name">STŘEŠNÍ OKNA</div>
-      <p class="service-desc">Profesionální montáž střešních oken pro přirozený přísun světla a vzduchu do interiéru. Správná instalace garantuje těsnost bez zatékání.</p>
+      <div class="service-card-inner">
+        <div class="service-front">
+          <svg class="service-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+            <rect x="14" y="10" width="20" height="26" rx="2"/>
+            <path d="M10 18h4M34 18h4M10 28h4M34 28h4"/>
+            <circle cx="24" cy="38" r="2" fill="currentColor" opacity="0.4"/>
+            <path d="M18 10V8a6 6 0 0112 0v2"/>
+          </svg>
+          <div class="service-name-front">STŘEŠNÍ OKNA</div>
+        </div>
+        <div class="service-back">
+          <div class="service-name">STŘEŠNÍ OKNA</div>
+          <p class="service-desc">Profesionální montáž střešních oken pro přirozený přísun světla a vzduchu. Správná instalace garantuje těsnost bez zatékání.</p>
+          <span class="service-hint">← Přejeďte zpět</span>
+        </div>
+      </div>
     </div>
 
     <div class="service-card fade-up">
-      <div class="service-num">04</div>
-      <svg class="service-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
-        <rect x="6" y="22" width="36" height="18" rx="1"/>
-        <path d="M6 22L24 10L42 22"/>
-        <path d="M6 28h36M6 34h36M14 22v18M24 22v18M34 22v18"/>
-      </svg>
-      <div class="service-name">PVC STŘEŠNÍ FOLIE</div>
-      <p class="service-desc">Izolační PVC folie a speciální nátěry pro ploché střechy. Spolehlivá hydroizolace s dlouhou životností. Garance žádného zatékání ani vlhkosti.</p>
+      <div class="service-card-inner">
+        <div class="service-front">
+          <svg class="service-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+            <rect x="6" y="22" width="36" height="18" rx="1"/>
+            <path d="M6 22L24 10L42 22"/>
+            <path d="M6 28h36M6 34h36M14 22v18M24 22v18M34 22v18"/>
+          </svg>
+          <div class="service-name-front">PVC STŘEŠNÍ FOLIE</div>
+        </div>
+        <div class="service-back">
+          <div class="service-name">PVC STŘEŠNÍ FOLIE</div>
+          <p class="service-desc">Izolační PVC folie a nátěry pro ploché střechy. Spolehlivá hydroizolace s dlouhou životností — žádné zatékání ani vlhkost.</p>
+          <span class="service-hint">← Přejeďte zpět</span>
+        </div>
+      </div>
     </div>
 
     <div class="service-card fade-up">
-      <div class="service-num">05</div>
-      <svg class="service-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
-        <rect x="16" y="28" width="16" height="14" rx="1"/>
-        <path d="M12 28h24M20 28V20a4 4 0 018 0v8"/>
-        <path d="M24 6v6M14 10l4 4M34 10l-4 4"/>
-        <circle cx="24" cy="14" r="4" fill="currentColor" opacity="0.2"/>
-      </svg>
-      <div class="service-name">KOMÍNOVÉ STŘÍŠKY</div>
-      <p class="service-desc">Výroba a montáž nerezových komínových stříšek „Napoleon" přímo na míru. Ochrana komína před deštěm, sněhem i ptáky.</p>
+      <div class="service-card-inner">
+        <div class="service-front">
+          <svg class="service-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+            <rect x="16" y="28" width="16" height="14" rx="1"/>
+            <path d="M12 28h24M20 28V20a4 4 0 018 0v8"/>
+            <path d="M24 6v6M14 10l4 4M34 10l-4 4"/>
+            <circle cx="24" cy="14" r="4" fill="currentColor" opacity="0.2"/>
+          </svg>
+          <div class="service-name-front">KOMÍNOVÉ STŘÍŠKY</div>
+        </div>
+        <div class="service-back">
+          <div class="service-name">KOMÍNOVÉ STŘÍŠKY</div>
+          <p class="service-desc">Výroba a montáž nerezových komínových stříšek „Napoleon" na míru. Ochrana komína před deštěm, sněhem i ptáky.</p>
+          <span class="service-hint">← Přejeďte zpět</span>
+        </div>
+      </div>
     </div>
 
     <div class="service-card fade-up">
-      <div class="service-num">06</div>
-      <svg class="service-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
-        <circle cx="24" cy="20" r="10"/>
-        <path d="M24 10V4M24 30v4M14 20H8M40 20h-6"/>
-        <path d="M17 13l-4-4M35 13l4-4"/>
-        <circle cx="24" cy="20" r="3" fill="currentColor" opacity="0.3"/>
-        <path d="M18 38l6-8 6 8"/>
-      </svg>
-      <div class="service-name">VENTILAČNÍ TURBÍNY</div>
-      <p class="service-desc">Instalace ventilačních turbín a sněhových zábran. Správné odvětrání střechy prodlouží její životnost a ochrání celou střešní konstrukci.</p>
+      <div class="service-card-inner">
+        <div class="service-front">
+          <svg class="service-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="24" cy="20" r="10"/>
+            <path d="M24 10V4M24 30v4M14 20H8M40 20h-6"/>
+            <path d="M17 13l-4-4M35 13l4-4"/>
+            <circle cx="24" cy="20" r="3" fill="currentColor" opacity="0.3"/>
+            <path d="M18 38l6-8 6 8"/>
+          </svg>
+          <div class="service-name-front">VENTILAČNÍ TURBÍNY</div>
+        </div>
+        <div class="service-back">
+          <div class="service-name">VENTILAČNÍ TURBÍNY</div>
+          <p class="service-desc">Instalace ventilačních turbín a sněhových zábran. Správné odvětrání střechy prodlouží životnost a ochrání celou střešní konstrukci.</p>
+          <span class="service-hint">← Přejeďte zpět</span>
+        </div>
+      </div>
     </div>
 
   </div>
@@ -1470,12 +1587,12 @@
           <option>PVC folie / plochá střecha</option>
           <option>Komínová stříška</option>
           <option>Ventilační turbína / sněhová zábrana</option>
-          <option>Oprava / havarijní výjezd</option>
+          <option>Oprava </option>
           <option>Jiné</option>
         </select>
       </div>
       <div class="form-group full">
-        <label class="form-label" for="f-msg">Popis — co potřebujete? *</label>
+        <label class="form-label" for="f-msg">Popište co přesně potřebujete? </label>
         <textarea class="form-textarea" id="f-msg" name="message" placeholder="Popište stručně situaci, typ střechy, případně lokalitu..." required></textarea>
       </div>
       <div id="form-msg"></div>
@@ -1503,6 +1620,13 @@
 </div>
 
 <script>
+  // ── FLIP KARTY (mobil / touch) ──
+  document.querySelectorAll('.service-card').forEach(card => {
+    card.addEventListener('click', () => {
+      card.classList.toggle('flipped');
+    });
+  });
+
   // ── NAV scroll + burger ──
   const nav      = document.getElementById('mainNav');
   const burger   = document.getElementById('burger');

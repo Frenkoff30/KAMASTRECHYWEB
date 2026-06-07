@@ -484,45 +484,78 @@
   .why {
     padding: 8rem 8vw;
     background: var(--black-2);
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 6rem;
-    align-items: center;
   }
-  .why-visual { position: relative; }
-  .why-big-num {
+
+  .why-head {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 3.5rem;
+  }
+
+  .why-cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5px;
+    background: var(--black-3);
+    border: 1.5px solid var(--black-3);
+  }
+
+  .why-card {
+    background: var(--black-2);
+    padding: 2.5rem 2rem;
+    position: relative;
+    overflow: hidden;
+    transition: background 0.3s;
+  }
+
+  .why-card::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--orange);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+  }
+
+  .why-card:hover { background: var(--black-3); }
+  .why-card:hover::after { transform: scaleX(1); }
+
+  .why-card-icon {
+    width: 3rem; height: 3rem;
+    background: rgba(242,107,29,0.1);
+    border-radius: 4px;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--orange);
+    margin-bottom: 1.5rem;
+  }
+
+  .why-card-title {
     font-family: var(--font-display);
-    font-size: clamp(8rem, 14vw, 16rem);
-    color: var(--black-3);
-    line-height: 0.85;
+    font-size: 1.5rem;
+    letter-spacing: 0.04em;
+    color: var(--white);
+    margin-bottom: 0.75rem;
+    line-height: 1.1;
+  }
+
+  .why-card-desc {
+    font-size: 0.88rem;
+    line-height: 1.65;
+    color: var(--gray);
+  }
+
+  .why-card-num {
+    position: absolute;
+    bottom: 1.2rem; right: 1.5rem;
+    font-family: var(--font-display);
+    font-size: 4rem;
+    color: rgba(255,255,255,0.04);
+    line-height: 1;
     user-select: none;
   }
-  .why-big-num span { color: var(--orange); }
-  .why-tag {
-    position: absolute;
-    bottom: 2rem; right: 0;
-    background: var(--orange);
-    color: var(--black);
-    padding: 1rem 1.5rem;
-    clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
-  }
-  .why-tag-num { font-family: var(--font-display); font-size: 2rem; line-height: 1; }
-  .why-tag-label { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; }
-  .why-list { list-style: none; display: flex; flex-direction: column; gap: 1.5rem; margin-top: 2.5rem; }
-  .why-item { display: flex; gap: 1.2rem; align-items: flex-start; }
-  .why-check {
-    width: 1.4rem; height: 1.4rem;
-    background: var(--orange);
-    border-radius: 2px;
-    flex-shrink: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 0.15rem;
-  }
-  .why-check svg { width: 10px; height: 10px; }
-  .why-item-text { font-size: 0.92rem; line-height: 1.6; color: var(--white-2); }
-  .why-item-text strong { color: var(--white); display: block; font-weight: 600; margin-bottom: 0.15rem; }
 
   /* ── GALLERY ── */
   .gallery { padding: 8rem 8vw; }
@@ -881,7 +914,7 @@
 
   /* ── RESPONSIVE ── */
   @media (max-width: 1024px) {
-    .why { grid-template-columns: 1fr; gap: 3rem; }
+    .why-cards { grid-template-columns: 1fr 1fr; }
     .contact { grid-template-columns: 1fr; gap: 3rem; }
     .brouseni { grid-template-columns: 1fr; gap: 3rem; }
   }
@@ -915,6 +948,7 @@
     .hero-title { font-size: clamp(3.5rem, 14vw, 5.5rem); }
     .services { padding: 5rem 5vw; }
     .why { padding: 5rem 5vw; }
+    .why-cards { grid-template-columns: 1fr; }
     .gallery { padding: 5rem 5vw; }
     .gallery-grid { grid-template-columns: 1fr; }
     .gallery-item { height: 200px; }
@@ -950,15 +984,17 @@
 
   <!-- LEVÁ část -->
   <div class="hero-left">
-    <div class="hero-badge">Profesionální střechy od roku 2001</div>
+    <div class="hero-badge">Stavíme spolehlivé střechy od roku 2001</div>
     <h1 class="hero-title">
       <span class="small-word">Vaše střecha</span>
       <span class="accent">BEZPEČNĚ</span>
       <span class="outline">NAD HLAVOU</span>
     </h1>
     <p class="hero-desc">
-      Pokrývačské a klempířské práce včetně dodávky materiálu.
-      Hlinsko a okolí — od roku 2001 s garancí kvality.
+      Provádíme klempířské a pokrývačské práce včetně dodávky materiálu,
+      montáž střešních oken, izolační PVC střešní fólie, aplikaci speciálních 
+      nátěrů na ploché střechy, instalaci ventilačních trubín, sněhových zábran 
+      a mnoho dalšího co souvisí se střešní konstrukcí.
     </p>
     <div class="hero-btns">
       <a href="#kontakt" class="btn-primary">
@@ -985,7 +1021,7 @@
       </div>
       <div class="hero-stat-box">
         <div class="stat-num">100<span class="stat-plus">%</span></div>
-        <div class="stat-label">Spokojených</div>
+        <div class="stat-label">Spolehlivost</div>
       </div>
     </div>
 
@@ -1041,14 +1077,14 @@
     <span class="ticker-item"><span class="ticker-dot"></span> PVC STŘEŠNÍ FOLIE</span>
     <span class="ticker-item"><span class="ticker-dot"></span> KOMÍNOVÉ STŘÍŠKY</span>
     <span class="ticker-item"><span class="ticker-dot"></span> VENTILAČNÍ TURBÍNY</span>
-    <span class="ticker-item"><span class="ticker-dot"></span> HLINSKO A OKOLÍ</span>
+    <span class="ticker-item"><span class="ticker-dot"></span> BROUŠENÍ NOŽŮ A NÁSTROJŮ</span>
     <span class="ticker-item"><span class="ticker-dot"></span> POKRÝVAČSKÉ PRÁCE</span>
     <span class="ticker-item"><span class="ticker-dot"></span> KLEMPÍŘSKÉ PRÁCE</span>
     <span class="ticker-item"><span class="ticker-dot"></span> STŘEŠNÍ OKNA</span>
     <span class="ticker-item"><span class="ticker-dot"></span> PVC STŘEŠNÍ FOLIE</span>
     <span class="ticker-item"><span class="ticker-dot"></span> KOMÍNOVÉ STŘÍŠKY</span>
     <span class="ticker-item"><span class="ticker-dot"></span> VENTILAČNÍ TURBÍNY</span>
-    <span class="ticker-item"><span class="ticker-dot"></span> HLINSKO A OKOLÍ</span>
+    <span class="ticker-item"><span class="ticker-dot"></span> BROUŠENÍ NOŽŮ A NÁSTROJŮ</span>
   </div>
 </div>
 
@@ -1137,34 +1173,51 @@
 
 <!-- WHY US -->
 <section class="why" id="proc-my">
-  <div class="why-visual fade-up">
-    <div class="why-big-num"><span>25</span><br>LET</div>
-    <div class="why-tag">
-      <div class="why-tag-num">500+</div>
-      <div class="why-tag-label">Střech za námi</div>
+  <div class="why-head fade-up">
+    <div>
+      <div class="section-eyebrow">Proč nás vybrat</div>
+      <h2 class="section-title">VÍME CO<br><span class="outline">DĚLÁME</span></h2>
     </div>
+    <div class="section-num">02</div>
   </div>
-  <div class="fade-up">
-    <div class="section-eyebrow">Proč nás vybrat</div>
-    <h2 class="section-title">VÍME CO<br><span class="outline">DĚLÁME</span></h2>
-    <ul class="why-list">
-      <li class="why-item">
-        <div class="why-check"><svg fill="none" stroke="#0E0E0E" stroke-width="2.5" viewBox="0 0 16 16"><path d="M2 8l4 4 8-8"/></svg></div>
-        <div class="why-item-text"><strong>Poctivé materiály</strong>Spolupracujeme pouze s ověřenými dodavateli. Žádné kompromisy na kvalitě.</div>
-      </li>
-      <li class="why-item">
-        <div class="why-check"><svg fill="none" stroke="#0E0E0E" stroke-width="2.5" viewBox="0 0 16 16"><path d="M2 8l4 4 8-8"/></svg></div>
-        <div class="why-item-text"><strong>Dodržujeme termíny</strong>Domluvený termín = splněný termín. Vážíme si vašeho času.</div>
-      </li>
-      <li class="why-item">
-        <div class="why-check"><svg fill="none" stroke="#0E0E0E" stroke-width="2.5" viewBox="0 0 16 16"><path d="M2 8l4 4 8-8"/></svg></div>
-        <div class="why-item-text"><strong>Jasná cena předem</strong>Nacenění zdarma, bez skrytých poplatků. Víte přesně co platíte.</div>
-      </li>
-      <li class="why-item">
-        <div class="why-check"><svg fill="none" stroke="#0E0E0E" stroke-width="2.5" viewBox="0 0 16 16"><path d="M2 8l4 4 8-8"/></svg></div>
-        <div class="why-item-text"><strong>Záruční servis</strong>Na naši práci stojíme. Záruční i pozáruční opravy řešíme osobně.</div>
-      </li>
-    </ul>
+  <div class="why-cards">
+
+    <div class="why-card fade-up">
+      <div class="why-card-icon">
+        <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      </div>
+      <div class="why-card-title">POCTIVÉ MATERIÁLY</div>
+      <p class="why-card-desc">Spolupracujeme pouze s ověřenými dodavateli. Žádné kompromisy na kvalitě — vždy jen to nejlepší.</p>
+      <div class="why-card-num">01</div>
+    </div>
+
+    <div class="why-card fade-up">
+      <div class="why-card-icon">
+        <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      </div>
+      <div class="why-card-title">DODRŽUJEME TERMÍNY</div>
+      <p class="why-card-desc">Domluvený termín = splněný termín. Vážíme si vašeho času a bereme závazky vážně.</p>
+      <div class="why-card-num">02</div>
+    </div>
+
+    <div class="why-card fade-up">
+      <div class="why-card-icon">
+        <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+      </div>
+      <div class="why-card-title">JASNÁ CENA PŘEDEM</div>
+      <p class="why-card-desc">Nacenění zdarma, bez skrytých poplatků. Víte přesně co platíte ještě před zahájením prací.</p>
+      <div class="why-card-num">03</div>
+    </div>
+
+    <div class="why-card fade-up">
+      <div class="why-card-icon">
+        <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+      </div>
+      <div class="why-card-title">ZÁRUČNÍ SERVIS</div>
+      <p class="why-card-desc">Na naši práci stojíme. Záruční i pozáruční opravy řešíme osobně — vždy rychle a spolehlivě.</p>
+      <div class="why-card-num">04</div>
+    </div>
+
   </div>
 </section>
 

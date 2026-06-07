@@ -732,20 +732,26 @@
 
   /* ── PARTNERS ── */
   .partners {
-    padding: 5rem 8vw;
+    padding: 4rem 8vw;
     border-top: 1px solid var(--black-3);
     border-bottom: 1px solid var(--black-3);
+    display: flex;
+    align-items: center;
+    gap: 4rem;
   }
+
+  .partners-head { flex-shrink: 0; }
+
   .partners-inner {
     display: flex;
     flex-wrap: wrap;
-    gap: 2rem;
-    justify-content: center;
+    gap: 2.5rem;
+    justify-content: flex-start;
     align-items: center;
     margin-top: 2.5rem;
   }
   .partner-logo {
-    height: 56px; width: auto;
+    height: 100px; width: auto;
     object-fit: contain;
     filter: grayscale(100%) brightness(0.5);
     transition: filter 0.3s;
@@ -1515,11 +1521,23 @@
 
 <!-- PARTNERS -->
 <section class="partners" id="partneri">
-  <div class="section-eyebrow fade-up">Spolupráce</div>
-  <h2 class="section-title fade-up">NAŠI <span class="outline">PARTNEŘI</span></h2>
+  <div class="partners-head fade-up">
+    <div class="section-eyebrow">Spolupráce</div>
+    <h2 class="section-title">NAŠI <span class="outline">PARTNEŘI</span></h2>
+  </div>
   <div class="partners-inner fade-up" id="partnersGrid">
-    <!-- Vlož loga: <img src="images/partneri/logo.png" alt="Partner" class="partner-logo"> -->
-    <span class="partners-empty">Loga partnerů doplníme</span>
+    <a href="https://www.dek.cz/" target="_blank" rel="noopener">
+      <img src="images/partneri/dek.png" alt="DEK Stavebniny" class="partner-logo">
+    </a>
+    <a href="https://www.obb.cz/" target="_blank" rel="noopener">
+      <img src="images/partneri/obb.png" alt="OBB Stavební materiály" class="partner-logo">
+    </a>
+    <a href="https://www.prihoda.com/cs/" target="_blank" rel="noopener">
+      <img src="images/partneri/prihoda.png" alt="Přihoda" class="partner-logo">
+    </a>
+    <a href="https://www.svratka.cz/" target="_blank" rel="noopener">
+      <img src="images/partneri/svratka.png" alt="Město Svratka" class="partner-logo">
+    </a>
   </div>
 </section>
 

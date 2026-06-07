@@ -13,12 +13,12 @@
     --orange: #F26B1D;
     --orange-dark: #D4560E;
     --orange-light: #FF8C42;
-    --black: #282828;
-    --black-2: #323232;
-    --black-3: #3E3E3E;
+    --black: #313131;
+    --black-2: #3C3C3C;
+    --black-3: #484848;
     --white: #F5F3EF;
     --white-2: #E8E4DC;
-    --gray: #AAAAAA;
+    --gray: #BBBBBB;
     --font-display: 'Bebas Neue', sans-serif;
     --font-body: 'DM Sans', sans-serif;
   }
@@ -427,13 +427,7 @@
     justify-content: space-between;
     margin-bottom: 4rem;
   }
-  .section-num {
-    font-family: var(--font-display);
-    font-size: 6rem;
-    color: var(--black-3);
-    line-height: 1;
-    user-select: none;
-  }
+  .section-num { display: none; }
 
   /* ── SERVICES ── */
   .services { padding: 8rem 8vw; position: relative; }
@@ -471,14 +465,7 @@
     color: var(--white);
   }
   .service-desc { font-size: 0.88rem; line-height: 1.65; color: var(--gray); }
-  .service-num {
-    position: absolute;
-    top: 1.5rem; right: 1.8rem;
-    font-family: var(--font-display);
-    font-size: 3.5rem;
-    color: rgba(255,255,255,0.04);
-    line-height: 1;
-  }
+  .service-num { display: none; }
 
   /* ── WHY US ── */
   .why {
@@ -488,9 +475,36 @@
 
   .why-head {
     display: flex;
-    align-items: flex-end;
+    align-items: center;
     justify-content: space-between;
     margin-bottom: 3.5rem;
+    gap: 3rem;
+  }
+
+  .why-stat-big {
+    flex-shrink: 0;
+    text-align: center;
+    background: var(--black-2);
+    border: 1px solid var(--black-3);
+    border-radius: 4px;
+    padding: 2rem 3rem;
+  }
+
+  .why-stat-big-num {
+    font-family: var(--font-display);
+    font-size: 5rem;
+    color: var(--orange);
+    line-height: 1;
+    letter-spacing: 0.02em;
+  }
+
+  .why-stat-big-label {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--gray);
+    margin-top: 0.4rem;
   }
 
   .why-cards {
@@ -547,15 +561,7 @@
     color: var(--gray);
   }
 
-  .why-card-num {
-    position: absolute;
-    bottom: 1.2rem; right: 1.5rem;
-    font-family: var(--font-display);
-    font-size: 4rem;
-    color: rgba(255,255,255,0.04);
-    line-height: 1;
-    user-select: none;
-  }
+  .why-card-num { display: none; }
 
   /* ── GALLERY ── */
   .gallery { padding: 8rem 8vw; }
@@ -998,7 +1004,7 @@
     </p>
     <div class="hero-btns">
       <a href="#kontakt" class="btn-primary">
-        Poslat poptávku
+        Poslat nezávaznou poptávku
         <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </a>
       <a href="#sluzby" class="btn-ghost">
@@ -1176,9 +1182,12 @@
   <div class="why-head fade-up">
     <div>
       <div class="section-eyebrow">Proč nás vybrat</div>
-      <h2 class="section-title">VÍME CO<br><span class="outline">DĚLÁME</span></h2>
+      <h2 class="section-title" style="font-size: clamp(3rem, 5vw, 5.5rem);">VÍME CO<br><span class="outline">DĚLÁME</span></h2>
     </div>
-    <div class="section-num">02</div>
+    <div class="why-stat-big">
+      <div class="why-stat-big-num">25+</div>
+      <div class="why-stat-big-label">Let zkušeností</div>
+    </div>
   </div>
   <div class="why-cards">
 

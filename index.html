@@ -905,12 +905,47 @@
   /* ── BROUŠENÍ ── */
   .brouseni {
     padding: 8rem 8vw;
-    background: var(--black);
+    background: #1C3A6B;
+    border-top: 5px solid #F5C400;
+    border-bottom: 5px solid #F5C400;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 6rem;
     align-items: center;
   }
+
+  /* Barvy uvnitř broušení */
+  .brouseni .section-eyebrow { color: #F5C400; }
+  .brouseni .section-title { color: #ffffff; }
+  .brouseni .section-title .outline {
+    -webkit-text-stroke: 2px rgba(255,255,255,0.3);
+    color: transparent;
+  }
+  .brouseni .brouseni-device {
+    background: rgba(255,255,255,0.08);
+    border-color: rgba(255,255,255,0.15);
+  }
+  .brouseni .brouseni-device-label { color: #F5C400; }
+  .brouseni .brouseni-device-name  { color: #ffffff; }
+  .brouseni .brouseni-device-desc  { color: rgba(255,255,255,0.65); }
+  .brouseni .brouseni-item {
+    background: rgba(255,255,255,0.08);
+    border-color: rgba(255,255,255,0.12);
+  }
+  .brouseni .brouseni-item:hover { border-color: rgba(245,196,0,0.4); }
+  .brouseni .brouseni-item-name { color: #ffffff; }
+  .brouseni .brouseni-note {
+    background: rgba(245,196,0,0.08);
+    border-color: rgba(245,196,0,0.35);
+    color: rgba(255,255,255,0.8);
+  }
+  .brouseni .brouseni-note-icon { color: #F5C400; }
+  .brouseni .brouseni-note a { color: #F5C400; }
+  .brouseni .btn-primary {
+    background: #F5C400 !important;
+    color: #1C3A6B !important;
+  }
+  .brouseni .btn-primary:hover { background: #ffd700 !important; }
 
   .brouseni-visual {
     position: relative;
@@ -1467,10 +1502,10 @@
   <div class="fade-up">
     <div class="section-eyebrow">Doplňková služba</div>
     <h2 class="section-title">BROUŠENÍ<br><span class="outline">NOŽŮ &amp; NÁSTROJŮ</span></h2>
-    <p style="font-size:0.95rem;line-height:1.75;color:var(--gray);margin:1.5rem 0 2rem;">
-      Kromě střechařských prací nabízíme profesionální broušení nožů, nůžek, dlát, vrtáků a dalších řezných nástrojů na stroji <strong style="color:var(--white);">TORMEK T8</strong>.
+    <p style="font-size:0.95rem;line-height:1.75;color:rgba(255,255,255,0.7);margin:1.5rem 0 2rem;">
+      Kromě střechařských prací nabízíme profesionální broušení nožů, nůžek, dlát, vrtáků a dalších řezných nástrojů na stroji <strong style="color:#F5C400;">TORMEK T8</strong>.
     </p>
-    <p style="font-size:0.95rem;line-height:1.75;color:var(--gray);margin-bottom:2rem;">
+    <p style="font-size:0.95rem;line-height:1.75;color:rgba(255,255,255,0.7);margin-bottom:2rem;">
       Výsledek je brilantně ostrý nástroj bez přehřátí oceli a bez ztráty tvrdosti čepele. Broušení je k dostání po telefonické domluvě přímo v Hlinsku.
     </p>
     <a href="tel:+420777243499" class="btn-primary" style="display:inline-flex;">

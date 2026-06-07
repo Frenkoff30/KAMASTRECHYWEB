@@ -13,12 +13,12 @@
     --orange: #F26B1D;
     --orange-dark: #D4560E;
     --orange-light: #FF8C42;
-    --black: #2C2C2C;
-    --black-2: #363636;
-    --black-3: #444444;
-    --white: #F5F3EF;
-    --white-2: #E8E4DC;
-    --gray: #C0C0C0;
+    --black: #F7F6F3;
+    --black-2: #EEECEA;
+    --black-3: #DDDBD8;
+    --white: #1A1A1A;
+    --white-2: #2E2E2E;
+    --gray: #666666;
     --font-display: 'Bebas Neue', sans-serif;
     --font-body: 'DM Sans', sans-serif;
   }
@@ -45,7 +45,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: rgba(14,14,14,0.85);
+    background: rgba(247,246,243,0.92);
     backdrop-filter: blur(12px);
     border-bottom: 1px solid rgba(242,107,29,0.15);
     transition: padding 0.3s;
@@ -105,6 +105,8 @@
     border-radius: 2px;
     transition: 0.25s;
   }
+
+  /* ticker text na světlém pozadí */
   .burger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
   .burger.open span:nth-child(2) { opacity: 0; }
   .burger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
@@ -252,7 +254,7 @@
   .hero-stat-box .stat-label { font-size: 0.62rem; margin-top: 0.3rem; }
   .hero-title .accent { color: var(--orange); display: block; }
   .hero-title .outline {
-    -webkit-text-stroke: 2px rgba(248,245,240,0.2);
+    -webkit-text-stroke: 2px rgba(26,26,26,0.2);
     color: transparent;
     display: block;
   }
@@ -941,7 +943,7 @@
       flex-direction: column;
       position: absolute;
       top: 100%; left: 0; right: 0;
-      background: rgba(14,14,14,0.98);
+      background: rgba(247,246,243,0.98);
       padding: 1.5rem 4vw;
       gap: 0.5rem;
       border-bottom: 1px solid rgba(242,107,29,0.15);

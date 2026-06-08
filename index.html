@@ -205,20 +205,15 @@
   }
 
   .hero-info-card {
-    background: var(--black-2);
-    border: 1px solid var(--black-3);
-    border-radius: 4px;
-    padding: 1.4rem 1.6rem;
     display: flex;
     align-items: center;
     gap: 1rem;
-    transition: border-color 0.2s;
+    margin-bottom: 0.2rem;
   }
-  .hero-info-card:hover { border-color: rgba(242,107,29,0.3); }
 
   .hero-info-icon {
-    width: 2.8rem; height: 2.8rem;
-    background: rgba(242,107,29,0.1);
+    width: 2.5rem; height: 2.5rem;
+    background: var(--black-3);
     border-radius: 4px;
     display: flex; align-items: center; justify-content: center;
     color: var(--orange);
@@ -246,14 +241,12 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 1px;
-    background: var(--black-3);
-    border-radius: 4px;
-    overflow: hidden;
+    margin-top: -3rem;
+    margin-bottom: 0.6rem;
   }
 
   .hero-stat-box {
-    background: var(--black-2);
-    padding: 1.2rem 1rem;
+    padding: 0.4rem 1rem;
     text-align: center;
   }
   .hero-stat-box .stat-num {
@@ -263,7 +256,7 @@
     line-height: 1;
     justify-content: center;
   }
-  .hero-stat-box .stat-label { font-size: 0.62rem; margin-top: 0.3rem; }
+  .hero-stat-box .stat-label { font-size: 0.62rem; margin-top: 0.3rem; color: #1A1A1A; }
   .hero-title .accent { color: var(--orange); display: block; }
   .hero-title .outline {
     -webkit-text-stroke: 2px rgba(26,26,26,0.85);
@@ -281,7 +274,7 @@
   .hero-desc {
     font-size: 1rem;
     line-height: 1.75;
-    color: var(--gray);
+    color: #333333;
     max-width: 420px;
     margin-bottom: 2.5rem;
     border-left: 2px solid var(--orange);
@@ -572,9 +565,6 @@
   .why-stat-big {
     flex-shrink: 0;
     text-align: center;
-    background: var(--black-2);
-    border: 1px solid var(--black-3);
-    border-radius: 4px;
     padding: 2rem 3rem;
   }
 
@@ -591,7 +581,7 @@
     font-weight: 600;
     letter-spacing: 0.16em;
     text-transform: uppercase;
-    color: var(--gray);
+    color: #1A1A1A;
     margin-top: 0.4rem;
   }
 
@@ -604,7 +594,7 @@
   }
 
   .why-card {
-    background: var(--black-2);
+    background: #DEDBD5;
     padding: 2.5rem 2rem;
     position: relative;
     overflow: hidden;
@@ -622,7 +612,7 @@
     transition: transform 0.4s ease;
   }
 
-  .why-card:hover { background: var(--black-3); }
+  .why-card:hover { background: #D2CEC6; }
   .why-card:hover::after { transform: scaleX(1); }
 
   .why-card-icon {
@@ -1279,7 +1269,7 @@
 <section class="services" id="sluzby">
   <div class="section-header">
     <div class="fade-up">
-      <div class="section-eyebrow">Co děláme ?</div>
+      <div class="section-eyebrow">Co nabízíme?</div>
       <h2 class="section-title">NAŠE<br><span class="outline">SLUŽBY</span></h2>
     </div>
     <div class="section-num fade-up">01</div>
@@ -1514,7 +1504,7 @@
     </a>
     <div class="brouseni-note">
       <span class="brouseni-note-icon">ℹ</span>
-      <span>Dostupné <strong>pouze po telefonické domluvě</strong> na čísle <a href="tel:+420777243499" style="color:var(--orange);text-decoration:none;">+420 777 243 499</a> a domluvíte si termín dle vašich možností.</span>
+      <span>Dostupné <strong>pouze po telefonické domluvě</strong> na čísle <a href="tel:+420777243499" style="color:var(--orange);text-decoration:none;">777 243 499</a> a domluvíte si termín dle vašich možností.</span>
     </div>
   </div>
 
@@ -1598,6 +1588,15 @@
       <div>
         <div class="contact-detail-label">E-mail</div>
         <div class="contact-detail-text"><a href="mailto:strechykama@seznam.cz">strechykama@seznam.cz</a></div>
+      </div>
+    </div>
+    <div class="contact-detail">
+      <div class="contact-icon">
+        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor"/></svg>
+      </div>
+      <div>
+        <div class="contact-detail-label">Instagram</div>
+        <div class="contact-detail-text"><a href="https://instagram.com" target="_blank">@kamastrechy</a></div>
       </div>
     </div>
     <div class="contact-detail">

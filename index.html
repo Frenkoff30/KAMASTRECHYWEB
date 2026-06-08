@@ -73,7 +73,7 @@
     font-weight: 500;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: #AAAAAA;
+    color: #FFFFFF;
     text-decoration: none;
     transition: color 0.2s;
   }
@@ -594,7 +594,7 @@
   }
 
   .why-card {
-    background: #DEDBD5;
+    background: #1A1A1A;
     padding: 2.5rem 2rem;
     position: relative;
     overflow: hidden;
@@ -612,7 +612,7 @@
     transition: transform 0.4s ease;
   }
 
-  .why-card:hover { background: #D2CEC6; }
+  .why-card:hover { background: #2A2A2A; }
   .why-card:hover::after { transform: scaleX(1); }
 
   .why-card-icon {
@@ -628,7 +628,7 @@
     font-family: var(--font-display);
     font-size: 1.5rem;
     letter-spacing: 0.04em;
-    color: var(--white);
+    color: var(--orange);
     margin-bottom: 0.75rem;
     line-height: 1.1;
   }
@@ -636,7 +636,7 @@
   .why-card-desc {
     font-size: 0.88rem;
     line-height: 1.65;
-    color: var(--gray);
+    color: #FFFFFF;
   }
 
   .why-card-num { display: none; }
@@ -908,8 +908,8 @@
   .brouseni .section-eyebrow { color: #F5C400; }
   .brouseni .section-title { color: #ffffff; }
   .brouseni .section-title .outline {
-    -webkit-text-stroke: 2px rgba(255,255,255,0.3);
-    color: transparent;
+    -webkit-text-stroke: initial;
+    color: #ffffff;
   }
   .brouseni .brouseni-device {
     background: rgba(255,255,255,0.08);
@@ -962,7 +962,7 @@
   }
 
   .brouseni-device-label {
-    font-size: 0.68rem;
+    font-size: 0.78rem;
     font-weight: 700;
     letter-spacing: 0.2em;
     text-transform: uppercase;
@@ -972,7 +972,7 @@
 
   .brouseni-device-name {
     font-family: var(--font-display);
-    font-size: 2.2rem;
+    font-size: 2.6rem;
     letter-spacing: 0.04em;
     color: var(--white);
     line-height: 1;
@@ -980,7 +980,7 @@
   }
 
   .brouseni-device-desc {
-    font-size: 0.85rem;
+    font-size: 1rem;
     color: var(--gray);
     line-height: 1.6;
   }
@@ -1101,7 +1101,7 @@
     <li><a href="#galerie">Reference</a></li>
     <li><a href="#brouseni">Broušení</a></li>
     <li><a href="#partneri">Partneři</a></li>
-    <li><a href="#kontakt" class="nav-cta">Nezávazná poptávka</a></li>
+    <li><a href="#kontakt" class="nav-cta">KONTAKT</a></li>
   </ul>
   <button class="burger" id="burger" aria-label="Menu">
     <span></span><span></span><span></span>
@@ -1111,6 +1111,11 @@
 <!-- HERO -->
 <section class="hero" id="uvod">
   <div class="hero-bg"></div>
+
+  <!-- Logo jako jemný vodoznak uprostřed hero -->
+  <img src="images/KAMASTRECHYLOGO.png" alt="" aria-hidden="true"
+       style="position:absolute; top:60%; left:50%; transform:translate(-50%,-50%);
+              width:380px; max-width:55%; opacity:0.18; z-index:0; pointer-events:none;">
 
   <!-- Dekorativní motiv střechy v pozadí -->
   <svg class="hero-roof-deco" viewBox="0 0 900 600" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -1151,11 +1156,10 @@
 
   <!-- LEVÁ část -->
   <div class="hero-left">
-    <div class="hero-badge">Spolehlivé střechy od roku 2001</div>
     <h1 class="hero-title">
-      <span class="small-word">Vaše střecha</span>
-      <span class="accent">BEZPEČNĚ</span>
-      <span class="outline">NAD HLAVOU</span>
+      <span class="small-word">Kama střechy,</span>
+      <span class="accent">STŘECHY KTERÝM</span>
+      <span class="outline">MŮŽETE VĚŘIT</span>
     </h1>
     <p class="hero-desc">
       Klempířské a pokrývačské práce včetně dodávky materiálu,
@@ -1165,7 +1169,7 @@
     </p>
     <div class="hero-btns">
       <a href="#kontakt" class="btn-primary">
-        Poslat nezávaznou poptávku
+        Kontaktujte nás hned
         <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </a>
       <a href="#sluzby" class="btn-ghost">
@@ -1427,7 +1431,7 @@
         <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
       </div>
       <div class="why-card-title">JASNÁ CENA PŘEDEM</div>
-      <p class="why-card-desc">Nacenění zdarma, bez skrytých poplatků. Víte přesně co platíte ještě před zahájení práce.</p>
+      <p class="why-card-desc">Nacenění zdarma. Víte přesně co platíte ještě před zahájení práce.</p>
       <div class="why-card-num">03</div>
     </div>
 
@@ -1436,7 +1440,7 @@
         <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
       </div>
       <div class="why-card-title">ZÁRUČNÍ SERVIS</div>
-      <p class="why-card-desc">Za naší prací si stojíme. Záruční i pozáruční opravy řešíme osobně a to vždy rychle a spolehlivě.</p>
+      <p class="why-card-desc">Za naší prací si stojíme. Záruční opravy řešíme osobně a to vždy rychle a spolehlivě.</p>
       <div class="why-card-num">04</div>
     </div>
 
@@ -1492,19 +1496,19 @@
   <div class="fade-up">
     <div class="section-eyebrow">Doplňková služba</div>
     <h2 class="section-title">BROUŠENÍ<br><span class="outline">NOŽŮ &amp; NÁSTROJŮ</span></h2>
-    <p style="font-size:0.95rem;line-height:1.75;color:rgba(255,255,255,0.7);margin:1.5rem 0 2rem;">
+    <p style="font-size:1.05rem;line-height:1.75;color:rgba(255,255,255,0.7);margin:1.5rem 0 2rem;">
       Kromě střechařských prací nabízíme profesionální broušení nožů, nůžek, dlát, vrtáků a dalších řezných nástrojů na stroji <strong style="color:#F5C400;">TORMEK T8</strong>.
     </p>
-    <p style="font-size:0.95rem;line-height:1.75;color:rgba(255,255,255,0.7);margin-bottom:2rem;">
+    <p style="font-size:1.05rem;line-height:1.75;color:rgba(255,255,255,0.7);margin-bottom:2rem;">
       Výsledek je brilantně ostrý nástroj bez přehřátí oceli a bez ztráty tvrdosti čepele. Broušení je k dostání po telefonické domluvě přímo v Hlinsku.
     </p>
-    <a href="tel:+420777243499" class="btn-primary" style="display:inline-flex;">
+    <a href="#kontakt" class="btn-primary" style="display:inline-flex;">
       Domluvit termín
       <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
     </a>
     <div class="brouseni-note">
       <span class="brouseni-note-icon">ℹ</span>
-      <span>Dostupné <strong>pouze po telefonické domluvě</strong> na čísle <a href="tel:+420777243499" style="color:var(--orange);text-decoration:none;">777 243 499</a> a domluvíte si termín dle vašich možností.</span>
+      <span>Dostupné <strong>pouze po telefonické domluvě</strong> na čísle <a href="tel:+420777243499" style="color:#F5C400;text-decoration:none;">777 243 499</a> a domluvíte si termín dle vašich možností.</span>
     </div>
   </div>
 
@@ -1570,7 +1574,7 @@
 <section class="contact" id="kontakt">
   <div class="contact-info fade-up">
     <div class="section-eyebrow">Kontakt</div>
-    <h2>POPTEJTE<br>NÁS <span>DNES</span></h2>
+    <h2>KONTAKTUJTE<br>NÁS <span>OKAMŽITĚ</span></h2>
     <p>Popište nám váš projekt nebo problém. Ozveme se vám do 48 hodin.</p>
     <div class="contact-detail">
       <div class="contact-icon">
@@ -1619,7 +1623,7 @@
     </div>
   </div>
 
-  <div class="fade-up">
+  <div class="fade-up" style="margin-top: 2.5rem;">
     <form class="form-grid" id="contactForm" novalidate>
       <div class="form-group">
         <label class="form-label" for="f-name">Jméno a příjmení *</label>
@@ -1644,6 +1648,7 @@
           <option>Komínová stříška</option>
           <option>Ventilační turbína / sněhová zábrana</option>
           <option>Oprava </option>
+          <option style="color:#D4A300; font-weight:600;">Broušení TORMEK T8</option>
           <option>Jiné</option>
         </select>
       </div>
@@ -1653,7 +1658,7 @@
       </div>
       <div id="form-msg"></div>
       <button type="submit" class="form-submit" id="submitBtn">
-        Odeslat nezávaznou poptávku
+        Nezávazně odeslat
         <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </button>
     </form>
